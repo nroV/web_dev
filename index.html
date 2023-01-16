@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      <link rel="stylesheet" href="css/default.css">
+</head>
+
+<body onload="loadme()">  
+    <!-- header -->
+
+
+    <section class="top my-5 d-block-flex p-5">
+        <legend id="top" class="lead text-center font-weight-bolder" >ការគណនានិទ្ទេសសិស្សទី១២</legend>
+        <br>
+
+            <div class="container shadow-lg p-0 p-lg-4 ">
+
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-lg-3 p-5 p-md-0">
+                          <label for=""​ class="lead font-weight-bold​ card-header d-block shadow-none bg-primary text-white" >មុខវិជ្ជា</label>
+                          <br>
+                            <form action="" method="get">
+                                <div class="group-input">
+                                    <label for="#link-score" class="form-label d-block">គណិតវិទ្យា</label>
+                                    <input type="text" class="form-control" id="txt-math" name="math" required autocomplete="off" maxlength="3">
+                                    
+                                    <label for="#link-score" class="form-label d-block">អក្សរសាស្ត្រខ្មែរ</label>
+                                    <input type="text" class="form-control" id="txt-khmer" autocomplete="off" maxlength="2">
+
+                                    <label for="#link-score" class="form-label d-block">រូបវិទ្យា</label>
+                                    <input type="text" class="form-control" id="txt-physic" autocomplete="off" maxlength="2">
+
+                                    <label for="#link-score" class="form-label d-block">គីមីវិទ្យា</label>
+                                    <input type="text" class="form-control" id="txt-chem" autocomplete="off" maxlength="2">
+
+
+                                    <label for="#link-score" class="form-label d-block">ជីវវិទ្យា</label>
+                                    <input type="text" class="form-control" id="txt-bio" autocomplete="off" maxlength="2">
+
+
+                    
+
+                                    <label for="#link-score" class="form-label d-block">ប្រវតិ្តសាស្ត្រ</label>
+                                    <input type="text" class="form-control" id="txt-his" autocomplete="off" maxlength="2">
+
+                                    <label for="#link-score" class="form-label d-block">អង់គ្លេស</label>
+                                    <input type="text" class="form-control" id="txt-eng" autocomplete="off" maxlength="2">
+
+                                </div>
+                                <br>
+                            
+                             
+                                <input type="button" value="គណនា" class="form-control btn-outline-primary" id="push">  
+                                <br>
+                                                  
+                                                          <label for="#link-score" class="form-label d-block">ពិន្ទុសរុប</label>
+                                                    
+                                                          <input type="text" class="form-control bg-light text-black-50" id="total" disabled>  <br>
+                                                       
+
+                                <button class="btn btn-dark text-white text-center d-block w-100" onclick="printhere()">Print</button>
+            
+                            </form>
+                          
+            
+                                <!-- <div class="content">
+                                    <div class="list-group">
+                                        <li class="list-group-item">
+                                        
+                                            <p class="lead d-inline-block ​lead">លទ្ធផល: </p>   
+                                            <input type="text" class="form-control bg-white text-black-50 border-primary" id="total" disabled>
+                                    
+                                        </li>
+                                        <li class="list-group-item text-center​" >
+                                        
+                                            <p class="lead d-inline text-center">និទ្ទេស: </p> 
+
+                                            <span class="font-weight-bold lead" id="grade"></span>
+                                            <br>
+                                            <p class="lead d-inline ">ពិន្ទុសរុប:</p> 
+                                        
+                                            <p class="font-weight-bold lead" id="result"></p>
+                                        </li>
+                                
+                                    </div>
+                                </div> -->
+            
+                        </div>
+                        <!-- result section -->
+                        <div class="col my-4 ">
+                    
+                            <div class="container d-flex flex-md-row flex-wrap justify-content-center justify-content-md-center flex-column-reverse align-content-center " id="card-container">
+                                <div class="card" id="linkcard">
+                                
+                                    <div class="card-header text-center font-weight-bolder​ display-6 bg-primary text-white" style="font-size:30px;">
+                                        គណិតវិទ្យា
+                                    </div>
+                                    <div class="card-content p-2">
+                                      ​​​​<p class="display-5 lead"> និទ្ទេស</p>
+                                      <p class="display-1 lead text-center font-weight-bolder" id="grade-math"><span><i class="bi bi-book-half"></i> </p>
+
+
+                                      <p class="display-5">ពិន្ទុ <span class="font-weight-bold" id="score-math">0</span></p>
+                                    </div>
+
+                                    <!-- <div class="card-footer"></div> -->
+                                </div>
+                                  <div class="card" id="linkcard">
+                                    <div class="card-header text-center font-weight-bolder​ display-6 bg-primary text-white" style="font-size:30px;">
+                                        អក្សរសាស្ត្រ
+                                    </div>
+                                    <div class="card-content p-2">
+                                      ​​​​<p class="display-5 lead"> និទ្ទេស</p>
+                                      <p class="display-1 lead text-center font-weight-bolder" id="grade-kh"><span><i class="bi bi-book-half"></i> </p>
+                                      <p class="display-5">ពិន្ទុ <span class="font-weight-bold" id="score-kh">0</span></p>
+                                    </div>
+
+                                    <!-- <div class="card-footer"></div> -->
+                                </div>
+                                <div class="card" id="linkcard">
+                                    <div class="card-header text-center font-weight-bolder​ display-6 bg-primary text-white" style="font-size:30px;">
+                                        ប្រវតិ្តសាស្ត្រ	
+                                    </div>
+                                    <div class="card-content p-2">
+                                      ​​​​<p class="display-5 lead"> និទ្ទេស</p>
+                                      <p class="display-1 lead text-center font-weight-bolder" id="grade-his"><span><i class="bi bi-book-half"></i></p>
+                                      <p class="display-5">ពិន្ទុ <span class="font-weight-bold" id="score-his">0</span></p>
+                                    </div>
+
+                                    <!-- <div class="card-footer"></div> -->
+                                </div>
+                                <div class="card" id="linkcard" >
+                                    <div class="card-header text-center font-weight-bolder​ display-6 bg-primary text-white" style="font-size:30px;">
+                                        ជីវវិទ្យា
+                                    </div>
+                                    <div class="card-content p-2">
+                                      ​​​​<p class="display-5 lead"> និទ្ទេស</p>
+                                      <p class="display-1 lead text-center font-weight-bolder" id="grade-bio"><span><i class="bi bi-book-half"></i></p>
+                                      <p class="display-5">ពិន្ទុ<span class="font-weight-bold" id="score-bio">0</span></p>
+                                    </div>
+
+                                    <!-- <div class="card-footer"></div> -->
+                                </div>
+                                <div class="card" id="linkcard">
+                                    <div class="card-header text-center font-weight-bolder​ display-6 bg-primary text-white" style="font-size:30px;">
+                                        គីមីវិទ្យា	
+                                    </div>
+                                    <div class="card-content p-2">
+                                      ​​​​<p class="display-5 lead"> និទ្ទេស</p>
+                                      <p class="display-1 lead text-center font-weight-bolder" id="grade-chem"><span><i class="bi bi-book-half"></i></p>
+                                      <p class="display-5">ពិន្ទុ <span class="font-weight-bold" id="score-chem">0</span></p>
+                                    </div>
+
+                                    <!-- <div class="card-footer"></div> -->
+                                </div>
+                               
+                                <div class="card" id="linkcard">
+                                    <div class="card-header text-center font-weight-bolder​ display-6 bg-primary text-white" style="font-size:30px;">
+                                        រូបវិទ្យា
+                                    </div>
+                                    <div class="card-content p-2">
+                                      ​​​​<p class="display-5 lead"> និទ្ទេស</p>
+                                      <p class="display-1 lead text-center font-weight-bolder" id="grade-psy"><span><i class="bi bi-book-half"></i></p>
+                                      <p class="display-5">ពិន្ទុ <span class="font-weight-bold" id="score-psy">0</span></p>
+                                    </div>
+
+                                    <!-- <div class="card-footer"></div> -->
+                                </div>
+                                <div class="card" id="linkcard">
+                                    <div class="card-header text-center font-weight-bolder​ display-6 bg-primary text-white" style="font-size:30px;">
+                                        អង់គ្លេស	
+                                    </div>
+                                    <div class="card-content p-2">
+                                      ​​​​<p class="display-5 lead"> និទ្ទេស</p>
+                                      <p class="display-1 lead text-center font-weight-bolder" id="grade-eng"><span><i class="bi bi-book-half"></i></p>
+                                      <p class="display-5">ពិន្ទុ <span class="font-weight-bold" id="score-eng">0</span></p>
+                                    </div>
+
+                                    <!-- <div class="card-footer"></div> -->
+                                </div>
+                                <div class="card" id="linkcard">
+                                    <div class="card-header text-center font-weight-bolder​ display-6 bg-success text-white" style="font-size:30px;">
+                                        និទ្ទេស	
+                                    </div>
+                                    <div class="card-content p-2 text-break">
+                                      ​​​​<p class="display-5 lead"> និទ្ទេសសរុប</p>
+                             
+                                      <p class="display-1 lead text-center font-weight-bolder text-danger" id="grade"><span><i class="bi bi-book-half"></i></p>
+                                        <p class="d-inline">ពិន្ទុសរុប: </p> 
+                                        <p class="font-weight-bold lead" id="result"></p>
+                                    </div>
+                                    
+
+                                    <!-- <div class="card-footer"></div> -->
+                                </div>
+                                
+
+                                <div class="card" id="linkcard">
+
+                                  <div class="card-header text-center" class="font-weight-bolder​ display-6 bg-success text-white text-center" style="font-size:30px;">
+                                          សង្ខេប 
+                                
+                                  </div>
+                                  <div class="card-body">
+                                
+                                  
+                                          
+                                      <p class="lead">និទ្ទេស: </p> 
+
+                                      <p class="display-5 lead font-weight-bolder text-danger" id="grade-clone"><span><i class="bi bi-book-half"></i></p>
+                                   
+                                      <p class="lead">ពិន្ទុសរុប:</p> 
+                                
+                                  
+                                      <p class="font-weight-bold lead text-danger" id="result-clone"></p>
+                                   
+                            
+                               
+                                    <!-- <div class="card-footer"></div> -->
+                                </div>
+                        
+                          
+                                
+                            </div>
+
+                      
+                        
+
+
+                        </div>
+                  
+
+                        <!-- <div class="col">
+
+                            <div class="card shadow-sm">
+                                <table class="table table-hover table-striped">
+                                    <thead class="bg-dark">
+                                          <div class="card-header text-center font-weight-bold bg-dark text-white">និទេ្ទសតាមមុខវិជ្ជា</div>
+                                    </thead>
+                                    <tbody class="table-hover">
+                                      <tr>
+                                        <th scope="row" colspan="2" class="text-center font-weight-bold">គណិតវិទ្យា</th>
+                                        <td></td>
+                                        <td colspan="2" class="text-center font-weight-bold">Invalid</td>
+                                        <td></td>
+                                 
+                                      </tr>
+                                      <tr>
+                                        <th scope="row" colspan="2" class="text-center font-weight-bold">អក្សរសាស្ត្រខ្មែរ</th>
+                                        <td></td>
+                                        <td colspan="2" class="text-center font-weight-bold">Invalid</td>
+                                        <td></td>
+                                 
+                                      </tr>
+                                      <tr>
+                                        <th scope="row" colspan="2" class="text-center">ជីវវិទ្យា</th>
+                                        <td></td>
+                                        <td colspan="2" class="text-center font-weight-bold">Invalid</td>
+                                        <td></td>
+                                  
+                                      </tr>
+                                      <tr>
+                                        <th scope="row" colspan="2" class="text-center">រូបវិទ្យា</th>
+                                        <td></td>
+                                        <td colspan="2" class="text-center font-weight-bold">Invalid</td>
+                                        <td></td>
+                                 
+                                      </tr>
+                                      <tr>
+                                        <th scope="row" colspan="2" class="text-center">គីមីវិទ្យា</th>
+                                        <td></td>
+                                        <td colspan="2" class="text-center font-weight-bold">Invalid</td>
+                                        <td></td>
+                             
+                                      </tr>
+                                      <tr>
+                                        <th scope="row" colspan="2" class="text-center">ប្រវតិ្តសាស្ត្រ</th>
+                                        <td></td>
+                                        <td colspan="2" class="text-center font-weight-bold">Invalid</td>
+                                        <td></td>
+                               
+                                      </tr>
+
+                                      <tr>
+                                        <th scope="row" colspan="2" class="text-center">អង់គ្លេស</th>
+                                        <td></td>
+                                        <td colspan="2" class="text-center font-weight-bold">Invalid</td>
+                                        <td></td>
+                                
+                                      </tr>
+                                      <tr>
+                                        <th scope="row" colspan="2" class="text-center">សរុប</th>
+                                        <td></td>
+                                        <td colspan="2" class="text-center font-weight-bold">  <input type="text" class="form-control text-center" id="total" disabled></td>
+                                        <td></td>
+
+                                      </tr>
+                                    
+
+                                    </tbody>
+                                  </table>
+                            </div>
+
+                        </div>
+
+
+                        </div> -->
+
+                     
+
+
+
+
+                    </div>
+
+             
+    </section>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <script src="javascript/j.js"></script>
+  
+</body>
+</html> 
