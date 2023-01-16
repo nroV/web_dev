@@ -431,7 +431,7 @@ function hispractice(His){
         hresult.textContent ="F";
  
     }  
-    else if(His>=50){
+    else if(His>50){
         hresult.textContent ="N";
     }
 }
